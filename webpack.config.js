@@ -51,12 +51,6 @@ module.exports = (env, argv) => {
           PugPlugin.extractCss({
             // output filename of styles
             filename: 'assets/css/[name].[contenthash:8].css',
-          }),
-          PugPlugin.extractHtml({
-            test: /\.(pug)/,
-            postprocess(content) {
-              return content.replaceAll('docs/', '/');
-            }
           })
         ],
       }),
