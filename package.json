@@ -1,0 +1,24 @@
+{
+  "name": "github-readme-preview",
+  "version": "1.0.0",
+  "description": "Markdown file preview in GitHub makeup on localhost.",
+  "author": "webdiscus",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "preview": "webpack serve --mode=development --env file=$npm_config_file",
+    "docs": "webpack --mode=production --env file=$npm_config_file"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "github-markdown-css": "^5.1.0",
+    "markdown-it": "^13.0.1",
+    "prismjs": "^1.28.0",
+    "pug-plugin": "^2.7.0",
+    "sass": "^1.52.2",
+    "sass-loader": "^13.0.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.1"
+  }
+}

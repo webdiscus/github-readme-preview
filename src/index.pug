@@ -1,0 +1,21 @@
+- file = file || 'Unknown file'
+- title = title || file
+
+doctype html
+html
+  head
+    //- Page title
+    title= title
+    link(href=require('./assets/images/favicon.ico') rel='shortcut icon' type='image/x-icon')
+    link(href=require('./assets/styles/main.scss') rel='stylesheet' )
+    script(src=require('./assets/scripts/main.js'))
+  body
+    .container
+      .readme-box
+        .box-header
+          <svg class="header-icon" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true">
+            <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+          </svg>
+          .header-title= file
+
+        .markdown-body: include:markdown ALIAS_TO_FILE
