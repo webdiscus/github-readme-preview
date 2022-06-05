@@ -3,7 +3,7 @@
 This is markdown file preview in GitHub makeup on localhost.\
 Supports for the dark and light themes of browser.
 
-![preview](docs/assets/images/preview.png?raw=true "preview")
+![preview](https://github.com/webdiscus/github-readme-preview/blob/master/docs/assets/images/preview.png?raw=true "preview")
 
 ## Required
 
@@ -72,7 +72,24 @@ For example, in Firefox, open the address `about:preferences`.\
 On the settings site go to `General > Language and Appearence > Web site appearence`.\
 Then select theme: `Light` or `Dark`.
 
-## Limitation
+## Syntax highlighting example
 
-Currently, shown the markdown and code syntax highlighting.\
-Images, UML, etc. are not supported.
+_HTML_
+```html
+<!-- Comment -->
+<div class="container">
+  <p>Paragraph</p>
+</div>
+```
+
+_JavaScript_
+```js
+const arr = [1, 2, 'banana'];
+```
+
+## ⚠️ Limitation
+
+Relative image path is not supported, use URL, e.g.:
+```
+![image](https://github.com/path/to/docs/image.png?raw=true "image")
+```
