@@ -1,5 +1,6 @@
 const path = require('path');
 const PugPlugin = require('pug-plugin');
+//const PugPlugin = require('../../GitHub/webpack/pug-plugin'); // for local development only
 
 const DEFAULT_FILE = 'README.md';
 
@@ -23,36 +24,32 @@ module.exports = (env, argv) => {
     resolve: {
       alias: {
         ALIAS_TO_FILE: resolvedFile,
-        docs: path.resolve(__dirname, 'src'),
+        Docs: path.resolve(__dirname, 'src'),
+        Styles: path.join(__dirname, 'src/assets/styles'),
+        Scripts: path.join(__dirname, 'src/assets/scripts'),
+        Images: path.join(__dirname, 'src/assets/images'),
       },
     },
 
     output: {
       path: path.join(__dirname, 'docs'),
-      // using `npm run docs` generates documentation from README.md in `docs` folder
-      // all assets from `docs` folder must have the publicPath `/github-readme-preview/`
-      publicPath: isProd ? '/github-readme-preview/' : '/',
+      publicPath: 'auto',
       // output filename of scripts
       filename: 'assets/js/[name].[contenthash:8].js',
     },
 
     entry: {
       // pass the file into Pug template
-      index: 'src/index.pug?file=' + file,
+      index: path.join(__dirname, 'src/index.pug?file=') + file,
     },
 
     plugins: [
       // use the pug-plugin to compile pug files defined in entry
       new PugPlugin({
-        //verbose: true, // output information about the process to console
-        modules: [
-          // the `extractCss` module extracts CSS from source style files
-          // you can require source style files directly in Pug
-          PugPlugin.extractCss({
-            // output filename of styles
-            filename: 'assets/css/[name].[contenthash:8].css',
-          })
-        ],
+        extractCss: {
+          // output filename of styles
+          filename: 'assets/css/[name].[contenthash:8].css',
+        },
       }),
     ],
 
@@ -78,6 +75,7 @@ module.exports = (env, argv) => {
               },
               // :markdown
               markdown: {
+                github: true, // support github syntax for note, warning
                 highlight: {
                   verbose: true,
                   use: 'prismjs', // name of highlighting npm package, must be installed
@@ -104,7 +102,8 @@ module.exports = (env, argv) => {
 
     devServer: {
       static: {
-        directory: path.join(__dirname, 'dist'),
+        // important: this is the directory of an MD file to display images with relative url
+        directory: path.dirname(resolvedFile),
       },
       https: false,
       compress: true,
