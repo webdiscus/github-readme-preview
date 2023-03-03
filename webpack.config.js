@@ -34,8 +34,6 @@ module.exports = (env, argv) => {
     output: {
       path: path.join(__dirname, 'docs'),
       publicPath: 'auto',
-      // output filename of scripts
-      filename: 'assets/js/[name].[contenthash:8].js',
     },
 
     entry: {
@@ -46,7 +44,11 @@ module.exports = (env, argv) => {
     plugins: [
       // use the pug-plugin to compile pug files defined in entry
       new PugPlugin({
-        extractCss: {
+        js: {
+          // output filename of scripts
+          filename: 'assets/js/[name].[contenthash:8].js',
+        },
+        css: {
           // output filename of styles
           filename: 'assets/css/[name].[contenthash:8].css',
         },
@@ -117,7 +119,7 @@ module.exports = (env, argv) => {
       },
 
       // open in default browser
-      //open: true,
+      open: true,
     },
   };
 };
