@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html data-color-mode="{{markdownTheme}}">
+<head>
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="@images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+  <!-- Load PrismJS styles of Highlighting from installed `prismjs` package -->
+  <link href="@npm/prismjs/themes/{{highlightingTheme}}.min.css" rel="stylesheet" />
+
+  <!-- Load GitHub styles of Markdown from installed `github-markdown-css` package -->
+  <link href="github-markdown-css/github-markdown-{{markdownTheme}}.css" rel="stylesheet" />
+
+  <!-- Load your custom styles. -->
+  <link href="@styles/main.scss" rel="stylesheet" />
+</head>
+<body>
+  <div class="github-layout">
+    <div class="readme-box">
+      <div class="box-header">
+        <img src="@images/list.svg?embed">
+        <div class="header-content">
+          <div class="header-title">{{filePath}}</div>
+          <div class="theme-switcher">
+            <a href="index.html">light</a> | <a href="index-dark.html">dark</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="markdown-body">
+        {{include markdownFile}}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

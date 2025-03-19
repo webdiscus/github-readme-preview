@@ -29,7 +29,7 @@ or in any subdirectory.
 Run from the `github-readme-preview/` directory:
 
 ```
-npm run preview --file=path/to/markdown_file
+npm start --file=path/to/markdown_file
 ```
 
 The commandline argument `--file` is optional. Default file is `README.md`.
@@ -46,22 +46,22 @@ Press `CTRL` + `C`
 
 Preview the `./README.md` file:
 ```
-npm run preview
+npm start
 ```
 
 Preview the `./CHANGELOG.md` file:
 ```
-npm run preview --file=CHANGELOG
+npm start --file=CHANGELOG
 ```
 
 Preview the `./docs/myMarkdownFile.md` file:
 ```
-npm run preview --file=docs/myMarkdownFile
+npm start --file=docs/myMarkdownFile
 ```
 
 Preview a file with absolute path, like `/absolute/path/to/README.md`:
 ```
-npm run preview --file=/absolute/path/to/README
+npm start --file=/absolute/path/to/README
 ```
 
 ## Switch dark / light themes

@@ -25,6 +25,7 @@ pre[class*="language-"] {
   -ms-hyphens: none;
   hyphens: none;
 
+  border: 0;
 }
 
 /* Code blocks */
